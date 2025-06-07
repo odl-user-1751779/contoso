@@ -3,21 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome User App</title>
-  <link rel="stylesheet" href="style.css">
+  <title>User Welcome App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      color: #333;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      color: white;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-  <div class="app-container">
-    <h1>Welcome User Application</h1>
-    <form id="welcome-form">
-      <label for="user-name">Enter Your Name:</label>
-      <input type="text" id="user-name" placeholder="Your Name">
-      <button type="button" id="submit-btn">Submit</button>
-      <p id="error-message" class="error"></p>
-    </form>
-    <div id="greeting" class="greeting"></div>
+  <div class="container">
+    <h1 id="welcome-message">Welcome to the app!</h1>
+    <input id="name-input" type="text" placeholder="Enter your name">
+    <button onclick="updateWelcomeMessage()">Submit</button>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function updateWelcomeMessage() {
+      const name = document.getElementById('name-input').value.trim();
+      const welcomeMessage = name ? `Welcome, ${name}!` : 'Welcome to the app!';
+      document.getElementById('welcome-message').textContent = welcomeMessage;
+    }
+  </script>
 </body>
 </html>
